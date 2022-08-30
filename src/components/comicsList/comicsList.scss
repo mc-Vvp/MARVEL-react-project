@@ -10,6 +10,7 @@
     }
     &__item {
         transition: 0.3s transform;
+        animation: myAnimComic 500ms ease 0s 1 normal forwards;
         &-img {
             box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
             width: 225px;
@@ -28,6 +29,62 @@
             line-height: 18px;
             color: rgba(0, 0, 0, 0.6);
             text-transform: uppercase;
+        }
+        &-enter {
+            opacity: 0;
+        }
+        &-enter-active {
+            opacity: 1;
+            @keyframes myAnimComic {
+                0% {
+                    animation-timing-function: ease-in;
+                    opacity: 0;
+                    transform: translateY(-250px);
+                }
+            
+                38% {
+                    animation-timing-function: ease-out;
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            
+                55% {
+                    animation-timing-function: ease-in;
+                    transform: translateY(-65px);
+                }
+            
+                72% {
+                    animation-timing-function: ease-out;
+                    transform: translateY(0);
+                }
+            
+                81% {
+                    animation-timing-function: ease-in;
+                    transform: translateY(-28px);
+                }
+            
+                90% {
+                    animation-timing-function: ease-out;
+                    transform: translateY(0);
+                }
+            
+                95% {
+                    animation-timing-function: ease-in;
+                    transform: translateY(-8px);
+                }
+            
+                100% {
+                    animation-timing-function: ease-out;
+                    transform: translateY(0);
+                }
+            }
+        }
+        &-exit {
+            opacity: 1;
+        }
+        &-exit-active {
+            opacity: 0;
+            transition: opacity 500ms ease-in;
         }
         &:hover {
             transform: translateY(-5px);

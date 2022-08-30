@@ -15,6 +15,8 @@
         row-gap: 30px;
     }
     &__item {
+        border-radius: 20px;
+        animation: myAnim 500ms ease 0s 1 normal forwards;
         width: 200px;
         height: 318px;
         background-color: $dark;
@@ -26,12 +28,37 @@
             width: 200px;
             height: 200px;
             object-fit: cover;
+            border-top-right-radius: 20px;
+            border-top-left-radius: 20px;
             transform: translate(-15px, -15px);
         }
         &_selected {
             box-shadow: 0 5px 20px $main-color;
             transform: translateY(-8px);
         }
+        &-enter {
+            opacity: 0;
+        }
+        &-enter-active {
+            opacity: 1;
+            @keyframes myAnim {
+                0% {
+                    transform: scale(0);
+                }
+            
+                100% {
+                    transform: scale(1);
+                }
+            }
+        }
+        &-exit {
+            opacity: 1;
+        }
+        &-exit-active {
+            opacity: 0;
+            transition: opacity 500ms ease-in;
+        }
+        
     }
     &__name {
         font-weight: bold;

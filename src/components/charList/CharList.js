@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import PropTypes from "prop-types"
 
 import useMarvelService from '../../services/MarvelService';
@@ -48,7 +49,8 @@ const CharList = (props) => {
             let isImage = item.thumbanil.includes("image_not_available") ? {objectFit: "unset"} : {objectFit: "cover"}
 
             return (
-                <li 
+                <CSSTransition key={item.id} timeout={500} classNames="char__item">
+                    <li 
                     className="char__item"
                     tabIndex={0}
                     ref={el => itemRefs.current[i] = el}
@@ -65,13 +67,16 @@ const CharList = (props) => {
                     }}>
                         <img src={item.thumbanil} alt={item.name} style={isImage}/>
                         <div className="char__name">{item.name}</div>
-                </li>
+                    </li>
+                </CSSTransition>
             )
         });
 
         return (
             <ul className="char__grid">
-                {items}
+                <TransitionGroup component={null}>
+                    {items}
+                </TransitionGroup>
             </ul>
         )
     }
