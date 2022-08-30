@@ -3,9 +3,21 @@
 .single-comic {
     margin-top: 50px;
     display: grid;
+    animation: myAnimComicPage 500ms ease 0s 1 normal forwards;
     grid-template-columns: 293px 550px auto;
     column-gap: 50px;
     align-items: start;
+    @keyframes myAnimComicPage {
+        0% {
+            opacity: 0;
+            transform: translateX(-250px);
+        }
+    
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
     &__img {
         width: 293px;
         height: 450px;

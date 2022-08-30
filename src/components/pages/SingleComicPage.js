@@ -1,5 +1,6 @@
 import { useParams, Link} from "react-router-dom"
 import { useState, useEffect } from 'react';
+import { CSSTransition } from "react-transition-group";
 
 import AppBanner from "../appBanner/AppBanner";
 import useMarvelService from '../../services/MarvelService';
