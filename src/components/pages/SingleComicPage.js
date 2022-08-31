@@ -1,6 +1,6 @@
 import { useParams, Link} from "react-router-dom"
 import { useState, useEffect } from 'react';
-import { CSSTransition } from "react-transition-group";
+import { Helmet } from "react-helmet";
 
 import AppBanner from "../appBanner/AppBanner";
 import useMarvelService from '../../services/MarvelService';
@@ -47,6 +47,13 @@ const View = ({comic}) => {
 
     return (
         <div className="single-comic">
+            <Helmet>
+                <meta
+                    name="description"    
+                    content={`${title} comic`}
+                    />
+                <title>{title}</title>    
+            </Helmet>
             <img src={thumbanil} alt={title} className="single-comic__img"/>
             <div className="single-comic__info">
                 <h2 className="single-comic__name">{title}</h2>
